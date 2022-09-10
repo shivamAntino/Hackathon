@@ -1,0 +1,169 @@
+@use "../../styles/mixins";
+@use "../../styles/variables";
+.login_container{
+  display: flex;
+ 
+  padding: 1rem;
+  background-color:variables.$light ;
+  width: 100%;
+  height: 100vh;
+}
+.left_container{
+  flex: 1;
+  height: 100%;
+  border-radius: 10px;
+  // width: 100%;
+      background-image: url("../../assets/images/loginbg_pc.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+     background-size: cover;
+ 
+
+}
+ @include mixins.media-sm {
+  .left_container{
+    display: none;
+  }
+ }
+    @include mixins.media-md {
+      .left_container {
+        display: none;
+      }
+    }
+
+.right_container{
+  flex: 1;
+  padding: 2rem;
+  width: 80%;
+}
+ .login_header {
+  @include mixins.flex(center,center,column);
+  
+ }
+ .header{
+  font-style: normal;
+    // font-weight: 600;
+    font-size: 1rem;
+    line-height: 39px;
+    font-family: variables.$font_family_inter;
+
+ }
+ .heading_text{
+  font-style: normal;
+  text-align: center;
+  margin-top: 1rem;
+    font-weight: 400;
+    font-size: 14px;
+    color:variables.$brown;
+    font-family: variables.$font_family_inter;
+ }
+ .login_card_container{
+  @include mixins.flex(center,center,row)
+
+ }
+
+
+
+ ////// css for selection card
+ .card_container{
+    width: 9rem;
+    height: 8rem;
+    background: linear-gradient(95.47deg, #2CD9D9 0%, #2CD9D9 100%);
+    box-shadow: 0px 4px 16px rgba(44, 217, 217, 0.58);
+    border-radius: 16px;
+    margin: 2rem;
+
+ }
+ .card_container_toggle{
+  width: 9rem;
+height: 8rem;
+background: #FFFFFF;
+  border: 1px solid #F1F1F1;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+  margin: 2rem;
+
+ }
+    @include mixins.media-sm {
+      .card_container {
+          width: 7rem;
+            height:6rem;
+      }
+    }
+ .avatar_container{
+
+
+ }
+ .card_text{
+
+ }
+ .form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+ }
+ .input_field{
+  width: 70%;
+  margin: 1rem 0rem;
+  input{
+    width: 100%;
+    height: 3rem;
+    background: #F7F7F7;
+    border-radius: 0.5rem;
+    outline: none;
+    padding-left: 1rem;
+    &focus{
+      margin-right: 1rem;
+    }
+    
+  }
+ }
+ @include mixins.media-md{
+  .input_field{
+    width: 100%;
+  }
+
+ }
+ input::placeholder{
+  color:variables.$brown;
+  padding-left: 0.5rem;
+ 
+ }
+
+ .btn{
+  width: 100%;
+  height: 3rem;
+  margin-top: 3rem;
+    display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  button{
+    width: 70%;
+    height: 3rem;
+    border-radius: 1rem;
+    background: linear-gradient(95.47deg, #2CD9D9 0%, #2CD9D9 100%);
+      // box-shadow: 0px 4px 16px rgba(44, 217, 217, 0.58);
+  }
+     @include mixins.media-md {
+       button {
+         width: 100%;
+       }
+  
+     }
+
+ }
+ .heading{
+  color:variables.$light;
+  margin: 1rem 0;
+  @include mixins.flex(center, center, column)
+  
+ }
+ .para{
+  
+    color: variables.$light;
+    @include mixins.flex(center, center, column)
+    
+ }
