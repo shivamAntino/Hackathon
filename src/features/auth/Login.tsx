@@ -2,7 +2,7 @@ import "./auth.scss";
 import { useState } from "react";
 import SelectionCard from "./SelectionCard";
 // import logo from "../../assets/images/avatarman.png";
-import "../../assets/images/avatarman.png";
+// import "../../assets/images/avatarman.png";
 
 const Login = () => {
   const [activeuser, setActiveUser] = useState(false);
@@ -58,7 +58,7 @@ const Login = () => {
               <input type="text" placeholder="enter ypur password" />
             </div>
             <div className="btn">
-              <button type="submit">Submit</button>
+              <button>Submit</button>
             </div>
           </div>
         </div>

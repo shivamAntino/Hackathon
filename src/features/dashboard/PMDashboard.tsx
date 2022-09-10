@@ -81,7 +81,8 @@ const feedbacks = [
       { name: "Performance", value: null },
       { name: "Punctuality", value: null },
     ],
-  },  {
+  },
+  {
     userName: "Abinash",
     userDesignation: "UI Designer",
     userPic:
@@ -108,14 +109,18 @@ const PMDashboard = () => {
         }}
       />
       <div className="dashboard-body">
+        <div className="dashboard-body-top-card">
         <TopPerformersCard
           topPerformers={topPerformers}
           headerText="Top Performers last week"
           footerText="Well Done You guys did a great job"
         />
-        {feedbacks.map((feedback) => (
-          <FeedbackCard {...feedback} />
-        ))}
+        </div>
+        <div className="dashboard-body-feedbacks">
+          {feedbacks.map((feedback) => (
+            <FeedbackCard {...feedback} />
+          ))}
+        </div>
       </div>
     </div>
   );
