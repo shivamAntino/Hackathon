@@ -11,7 +11,12 @@ const login = async (payload: LoginCreds, userType: UserType) => {
     );
     return { data };
   } catch (e: any) {
-    alert("invalid credentials");
+    if (e.message) {
+      alert(e.message);
+    } else {
+      alert("invalid credentials");
+    }
+    // alert((e.message && e.message) || "invalid data");
     return { error: e.message as string };
   }
 };

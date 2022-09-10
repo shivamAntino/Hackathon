@@ -15,6 +15,7 @@ function App() {
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/" element={<PublicRoute />}>
           <Route path="login" element={<Login />} />
+          {/* <Route path="dashboard-vp" element={<VPDashboard />} /> */}
         </Route>
         <Route path="/" element={<PrivateRoute />}>
           <Route path="dashboard-vp" element={<VPDashboard />} />
