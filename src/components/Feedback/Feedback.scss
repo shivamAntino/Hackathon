@@ -1,0 +1,26 @@
+.feedback {
+  &-label {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #1a1a1a;
+  }
+  &-rating {
+    &-filled {
+      background-image: url("../../assets/icons/FilledStar.png");
+    }
+    &-empty {
+      background-image: url("../../assets/icons/EmptyStar.png");
+    }
+    &-pending {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+      color: #797979;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import "../../styles//mixins";
+
+.navbar {
+  background: linear-gradient(#256e6e 0%, #1c5656 100%);
+  padding: 2rem 1rem 4rem 1rem;
+}
+
+.dashboard-navbar {
+  &-title {
+    @include flex(center, flex-start, row);
+    gap: 0.8rem;
+    &-greeting {
+      @include flex(flex-start, space-between, column);
+      gap: 0.5rem;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+      color: #ffffff;
+    }
+  }
+}
