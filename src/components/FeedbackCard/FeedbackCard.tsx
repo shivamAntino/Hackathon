@@ -31,8 +31,8 @@ const FeedbackCard: FC<IFeedbackCardProps> = ({
         </div>
       </div>
       <div className="feedback-card-feedbacks">
-        {feedbacks.map((feedback) => (
-          <Feedback feedback={feedback} />
+        {feedbacks.map((feedback, idx) => (
+          <Feedback feedback={feedback} key={idx} />
         ))}
       </div>
       <div className="feedback-card-footer">

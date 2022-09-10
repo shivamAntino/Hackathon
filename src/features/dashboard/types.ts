@@ -1,7 +1,9 @@
-import { Loading } from "../auth/types";
+import { Feedback } from "../../components/FeedbackCard/types";
+import { Loading, UserType } from "../auth/types";
 
 export interface DashboardState {
   employees: Employee[];
+  top3Employees : Employee[];
   pmData: Employee | null;
   loading: Loading;
   error: string;
@@ -17,4 +19,8 @@ export interface Employee {
   username: string;
   firstName: string;
   lastName: string;
+  performanceArr: Feedback[]
+  role : UserType;
+  designation : string;
+  isPending : boolean;
 }

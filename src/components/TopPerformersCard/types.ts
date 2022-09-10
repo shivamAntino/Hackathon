@@ -1,5 +1,7 @@
+import { Employee } from "../../features/dashboard/types";
+
 export interface ITopPerformersCard {
-  topPerformers: TopPerformer[];
+  topPerformers: Employee[];
   headerText: string;
   footerText: string;
 }
