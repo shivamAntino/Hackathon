@@ -3,12 +3,13 @@ export interface AuthState {
   userType: UserType;
   error: string;
   loading: Loading;
+  selectedRole: UserType;
 }
 
 export type Loading = "idle" | "loading" | "failed" | "succeeded";
 
 export interface LoginCreds {
-  email: string;
+  username: string;
   password: string;
 }
 

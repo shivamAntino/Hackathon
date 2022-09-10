@@ -1,24 +1,29 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   adminInfoGetterService,
   adminInfoRemovalService,
   adminInfoSetterService,
 } from "../../services";
+import { RootState } from "../../store";
 import AuthService from "./auth.service";
 // import type { PayloadAction } from "@reduxjs/toolkit";
-import { AuthState, LoginCreds } from "./types";
+import { AuthState, LoginCreds, LoginResponse } from "./types";
 
 const initialState: AuthState = {
   token: adminInfoGetterService().token,
   userType: adminInfoGetterService().role,
   loading: "idle",
   error: "",
+  selectedRole: "PM",
 };
 
 export const login = createAsyncThunk(
   "auth/login",
   async (payload: LoginCreds, thunkAPI) => {
-    const { data, error } = await AuthService.login(payload);
+    const {
+      auth: { selectedRole },
+    } = thunkAPI.getState() as RootState;
+    const { data, error } = await AuthService.login(payload, selectedRole);
     if (data) {
       adminInfoSetterService(data);
       return data;
@@ -35,7 +40,11 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    toggleSelectedRole: (state, action) => {
+      state.selectedRole = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(login.pending, (state) => {
       state.loading = "loading";
@@ -44,12 +53,15 @@ const authSlice = createSlice({
       state.loading = "failed";
       state.error = action.payload as string;
     });
-    builder.addCase(login.fulfilled, (state, action) => {
-      const { token, role } = action.payload;
-      state.loading = "succeeded";
-      state.token = token;
-      state.userType = role;
-    });
+    builder.addCase(
+      login.fulfilled,
+      (state, action: PayloadAction<LoginResponse>) => {
+        const { token, role } = action.payload;
+        state.loading = "succeeded";
+        state.token = token;
+        state.userType = role;
+      }
+    );
     builder.addCase(logout.fulfilled, (state) => {
       state.token = "";
       state.userType = null;
@@ -57,4 +69,5 @@ const authSlice = createSlice({
   },
 });
 
+export const { toggleSelectedRole } = authSlice.actions;
 export default authSlice.reducer;
