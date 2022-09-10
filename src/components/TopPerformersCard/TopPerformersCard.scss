@@ -1,0 +1,46 @@
+@import "../../styles//mixins";
+
+.top-performers-card {
+  @include flex(stretch, space-evenly, column);
+  background-image: url("../../assets//images/TopPerformerMobileCardBG.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 20rem;
+  &-header {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #ffffff;
+    align-self: center;
+  }
+
+  &-footer {
+    display: none;
+  }
+
+  &-body {
+    @include flex(flex-end, space-evenly, row);
+  }
+}
+
+.top-performer {
+  @include flex(center, center, column);
+  font-family: "Inter";
+  font-style: normal;
+  &-username {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #ffffff;
+  }
+  &-designation {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #9e9e9e;
+  }
+}

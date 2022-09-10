@@ -1,0 +1,12 @@
+@import "../../styles//mixins";
+
+.dashboard {
+  &-body {
+    @include flex(stretch, center, column);
+    gap : 1rem;
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: 32px;
+    margin-top: -2rem;
+  }
+}
