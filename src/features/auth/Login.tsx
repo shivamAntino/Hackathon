@@ -26,7 +26,6 @@ const Login = () => {
     dispatch(toggleSelectedRole("vp"));
   };
   const handleSubmit = () => {
-    console.log("hii");
     const response = {
       username: id,
       password: password,
