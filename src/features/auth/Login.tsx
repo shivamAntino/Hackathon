@@ -37,8 +37,8 @@ const Login = () => {
           <div className="login_card_container">
             <div className="card_left" onClick={() => handlePmSelection()}>
               <SelectionCard
-                src="../../assets/images/avatarman.png"
-                title="VP operation"
+                src="https://www.w3schools.com/howto/img_avatar.png"
+                title="PM operation"
                 active={activepm}
               />
             </div>
