@@ -15,10 +15,10 @@ function App() {
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/" element={<PublicRoute />}>
           <Route path="login" element={<Login />} />
-          <Route path="dashboard-vp" element={<VPDashboard />} />
+          {/* <Route path="dashboard-vp" element={<VPDashboard />} /> */}
         </Route>
         <Route path="/" element={<PrivateRoute />}>
-          {/* <Route path="dashboard-vp" element={<VPDashboard />} /> */}
+          <Route path="dashboard-vp" element={<VPDashboard />} />
           <Route path="dashboard-pm" element={<PMDashboard />} />
           <Route path="user-records" element={<UserRecords />} />
           <Route path="user-profile" element={<UserProfile />} />

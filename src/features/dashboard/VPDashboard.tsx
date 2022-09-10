@@ -5,32 +5,21 @@ import { adminInfoRemovalService } from "../../services";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../store";
 import { logout } from "../auth/auth.slice";
-import { TopPerformer } from "../../components/TopPerformersCard/types";
 import { getPMDashboardData } from "./dashboard.slice";
 import { useEffect } from "react";
 import Profilecard from "../../components/profilecard/Profilecard";
+import { Employee } from "./types";
 
-const topPerformers: TopPerformer[] = [
+const topPerformers: Employee[] = [
   {
-    userName: "Noor",
-    userDesignation: "Frontend developer",
-    userPic:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
-    rating: 2,
-  },
-  {
-    userName: "Gaurav",
-    userDesignation: "Backend developer",
-    userPic:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
-    rating: 5,
-  },
-  {
-    userName: "Abinash",
-    userDesignation: "UI Designer",
-    userPic:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
-    rating: 4,
+    _id: "1",
+    username: "shivam",
+    firstName: "shivam",
+    lastName: "Ranjan",
+    performanceArr: [],
+    role: "PM",
+    designation: "develoepr",
+    isPending: true,
   },
 ];
 
