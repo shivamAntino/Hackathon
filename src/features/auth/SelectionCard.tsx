@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Avatar from "../../components/Avatar/Avatar";
 import { ISelectionCard } from "./types";
+import "./auth.scss";
 
 // import avatarman from "../../assets/images/avatarman;
 // interface srcprops {
