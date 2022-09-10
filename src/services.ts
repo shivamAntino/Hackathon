@@ -8,8 +8,8 @@ export const adminInfoGetterService = () => {
 };
 export const adminInfoSetterService = (payload: LoginResponse) => {
   localStorage.setItem("pro-coders-role", payload.role || "");
-  localStorage.setItem("pro-coder-token", payload.token);
-  localStorage.setItem("pro-coder-id", payload.id);
+  localStorage.setItem("pro-coders-token", payload.token);
+  localStorage.setItem("pro-coders-id", payload.id);
 };
 export const adminInfoRemovalService = () => {
   localStorage.removeItem("pro-coders-token");

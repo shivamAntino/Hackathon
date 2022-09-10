@@ -6,7 +6,6 @@ import {
 } from "../../services";
 import { RootState } from "../../store";
 import AuthService from "./auth.service";
-// import type { PayloadAction } from "@reduxjs/toolkit";
 import { AuthState, LoginCreds, LoginResponse } from "./types";
 
 const initialState: AuthState = {
@@ -57,10 +56,11 @@ const authSlice = createSlice({
     builder.addCase(
       login.fulfilled,
       (state, action: PayloadAction<LoginResponse>) => {
-        const { token, role } = action.payload;
+        const { token, role, id } = action.payload;
         state.loading = "succeeded";
         state.token = token;
         state.userType = role;
+        state.id = id;
       }
     );
     builder.addCase(logout.fulfilled, (state) => {

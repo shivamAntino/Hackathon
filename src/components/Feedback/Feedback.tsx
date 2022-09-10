@@ -12,7 +12,7 @@ const Feedback: FC<IFeedbackProps> = ({ feedback: { name, value } }) => {
           <p className="feedback-rating-pending">Pending</p>
         ) : (
           <StarRatings
-            rating={value}
+            rating={+value}
             numberOfStars={5}
             starRatedColor="rgba(255, 212, 58, 1)"
             starEmptyColor="rgba(224, 224, 224, 1)"

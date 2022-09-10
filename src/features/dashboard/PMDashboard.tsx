@@ -4,6 +4,7 @@ import FeedbackCard from "../../components/FeedbackCard/FeedbackCard";
 import DashboardNavbar from "../../components/Navbar/DashboardNavbar";
 import TopPerformersCard from "../../components/TopPerformersCard/TopPerformersCard";
 import { TopPerformer } from "../../components/TopPerformersCard/types";
+import { defaultUserPic } from "../../constants";
 import { RootState, useAppDispatch } from "../../store";
 
 import "./dashboard.scss";
@@ -33,77 +34,10 @@ const topPerformers: TopPerformer[] = [
   },
 ];
 
-const feedbacks = [
-  {
-    userName: "Noor",
-    userDesignation: "Frontend developer",
-    userPic:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
-
-    overAllFeedback: "",
-    isPending: false,
-    feedbacks: [
-      { name: "Performance", value: 4 },
-      { name: "Punctuality", value: 5 },
-    ],
-  },
-  {
-    userName: "Gaurav",
-    userDesignation: "Backend developer",
-    userPic:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
-
-    overAllFeedback: "",
-    isPending: false,
-    feedbacks: [
-      { name: "Performance", value: 3 },
-      { name: "Punctuality", value: 2 },
-    ],
-  },
-  {
-    userName: "Abinash",
-    userDesignation: "UI Designer",
-    userPic:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
-
-    overAllFeedback: "",
-    isPending: true,
-    feedbacks: [
-      { name: "Performance", value: null },
-      { name: "Punctuality", value: null },
-    ],
-  },
-  {
-    userName: "Abinash",
-    userDesignation: "UI Designer",
-    userPic:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
-
-    overAllFeedback: "",
-    isPending: true,
-    feedbacks: [
-      { name: "Performance", value: null },
-      { name: "Punctuality", value: null },
-    ],
-  },
-  {
-    userName: "Abinash",
-    userDesignation: "UI Designer",
-    userPic:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
-
-    overAllFeedback: "",
-    isPending: true,
-    feedbacks: [
-      { name: "Performance", value: null },
-      { name: "Punctuality", value: null },
-    ],
-  },
-];
 
 const PMDashboard = () => {
   const dispatch = useAppDispatch();
-  const { pmData } = useSelector((state: RootState) => state.dashboard);
+  const { pmData, employees, top3Employees } = useSelector((state: RootState) => state.dashboard);
 
   useEffect(() => {
     dispatch(getPMDashboardData());
@@ -122,14 +56,14 @@ const PMDashboard = () => {
       <div className="dashboard-body">
         <div className="dashboard-body-top-card">
           <TopPerformersCard
-            topPerformers={topPerformers}
+            topPerformers={top3Employees}
             headerText="Top Performers last week"
             footerText="Well Done You guys did a great job"
           />
         </div>
         <div className="dashboard-body-feedbacks">
-          {feedbacks.map((feedback) => (
-            <FeedbackCard {...feedback} />
+          {employees.map((employee, idx) => (
+            <FeedbackCard key={idx} userName={employee.firstName} userDesignation={employee.designation} userPic={defaultUserPic} feedbacks={employee.performanceArr} isPending={employee.isPending}   />
           ))}
         </div>
       </div>
