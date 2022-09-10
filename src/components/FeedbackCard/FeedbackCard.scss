@@ -42,3 +42,10 @@
     }
   }
 }
+
+@include media-xl {
+  .feedback-card {
+    width : 33%;
+    height: auto;
+  }
+}

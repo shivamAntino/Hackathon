@@ -58,7 +58,7 @@ const Login = () => {
               <input type="text" placeholder="enter ypur password" />
             </div>
             <div className="btn">
-              <button type="submit">Submit</button>
+              <button>Submit</button>
             </div>
           </div>
         </div>

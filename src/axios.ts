@@ -9,7 +9,7 @@ export const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(function (config: AxiosRequestConfig) {
   if (config && config.headers) {
-    config.headers.Authorization = adminInfoGetterService();
+    config.headers.Authorization = adminInfoGetterService().token;
   }
   return config;
 });

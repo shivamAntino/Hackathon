@@ -3,11 +3,14 @@ import { IAvatarProps } from "./types";
 import "./Avatar.scss";
 
 const Avatar: FC<IAvatarProps> = ({ src, height = 50, width = 50 }) => {
-  console.log({ src });
-
   return (
     <div className="avatar">
-      <img src={src} alt="avatar" height={height} width={width} />
+      <img
+        src={src}
+        alt="avatar"
+        height={height}
+        width={width}
+      />
     </div>
   );
 };

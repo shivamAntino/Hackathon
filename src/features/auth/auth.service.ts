@@ -1,8 +1,20 @@
 import axios from "axios";
+import { axiosInstance } from "../../axios";
 
-import { LoginCreds } from "./types";
+import { LoginCreds, LoginResponse } from "./types";
 
-const loginAsPM = (payload : LoginCreds) => {};
+const login = async (payload: LoginCreds) => {
+  try {
+    const { data } = await axiosInstance.post<LoginResponse>(
+      "/api/user/login",
+      payload
+    );
+    return { data };
+  } catch (e: any) {
+    return { error: e.message as string };
+  }
+};
 
-const loginAsVP = (payload : LoginCreds) => {};
+const AuthService = { login };
 
+export default AuthService;
