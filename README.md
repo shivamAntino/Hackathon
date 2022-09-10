@@ -11,3 +11,6 @@ A Web Portal which allows Project Managers and VPs to view the employees' perfor
 
 
 # Screenshorts
+
+<img src="./src/assets/screenshorts/DesktopPMDashboard.png" />
+<img src="./src/assets/screenshorts/MobilePMDashboard.png" />
