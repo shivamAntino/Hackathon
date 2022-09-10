@@ -1,24 +1,27 @@
 import { FC } from "react";
 import { IFeedbackProps } from "./types";
 import "./Feedback.scss";
+import StarRatings from "react-star-ratings";
 
 const Feedback: FC<IFeedbackProps> = ({ feedback: { name, value } }) => {
-  const renderFeedbackRating = (rating: number) => {
-    const nodes = [];
-    for (let i = 0; i < 6; i++) {
-      if (i <= rating) {
-        nodes.push(<span className="feedback-rating-filled"></span>);
-      } else {
-        nodes.push(<span className="feedback-rating-empty"></span>);
-      }
-    }
-    return nodes;
-  };
   return (
     <div className="feedback">
       <p className="feedback-label">{name}</p>
       <div className="feedback-rating">
-        {value === null ? <p className="feedback-rating-pending">Pending</p> : renderFeedbackRating(value)}
+        {value === null ? (
+          <p className="feedback-rating-pending">Pending</p>
+        ) : (
+          <StarRatings
+            rating={value}
+            numberOfStars={5}
+            starRatedColor="rgba(255, 212, 58, 1)"
+            starEmptyColor="rgba(224, 224, 224, 1)"
+            starHoverColor="rgba(255, 212, 58, 1)"
+            starDimension="12"
+            starSpacing="1"
+            name="rating"
+          />
+        )}
       </div>
     </div>
   );

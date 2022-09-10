@@ -43,9 +43,9 @@
   }
 }
 
-@include media-xl {
+@include media-md {
   .feedback-card {
-    width : 33%;
+    width : 48%;
     height: auto;
   }
 }

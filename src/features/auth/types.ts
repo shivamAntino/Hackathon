@@ -1,6 +1,7 @@
 export interface AuthState {
   token: string;
   userType: UserType;
+  id : string;
   error: string;
   loading: Loading;
 }
@@ -22,4 +23,5 @@ export interface LoginResponse {
   status: string;
   token: string;
   role: UserType;
+  id : string;
 }

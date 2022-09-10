@@ -1,3 +1,5 @@
+@import "../../styles/mixins";
+
 .feedback {
   &-label {
     font-family: "Inter";
@@ -8,11 +10,20 @@
     color: #1a1a1a;
   }
   &-rating {
+    @include flex(center, center, row);
     &-filled {
-      background-image: url("../../assets/icons/FilledStar.png");
+      // background: url("../../assets/icons/FilledStar.png");
     }
     &-empty {
-      background-image: url("../../assets/icons/EmptyStar.png");
+      // background: url("../../assets/icons/EmptyStar.png");
+    }
+    &-filled,
+    &-empty {
+      display: block;
+      background-repeat: no-repeat;
+      height: 20px;
+      width: 30px;
+      object-fit: contain;
     }
     &-pending {
       font-family: "Inter";

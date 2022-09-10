@@ -9,9 +9,10 @@ import AuthService from "./auth.service";
 import { AuthState, LoginCreds } from "./types";
 
 const initialState: AuthState = {
-  token: adminInfoGetterService().token,
-  userType: adminInfoGetterService().role,
+  token: "123",
+  userType: "PM",
   loading: "idle",
+  id : "",
   error: "",
 };
 

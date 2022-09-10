@@ -2,10 +2,12 @@ import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 
 import AuthReducer from "./features/auth/auth.slice"
+import DashboardReducer from "./features/dashboard/dashboard.slice"
 
 const store = configureStore({
   reducer: {
-    auth : AuthReducer
+    auth : AuthReducer,
+    dashboard : DashboardReducer,
   },
 })
 

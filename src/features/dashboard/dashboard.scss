@@ -11,7 +11,7 @@
   }
 }
 
-@include media-xl {
+@include media-md {
   .dashboard {
     &-body {
       display: grid;
@@ -27,6 +27,7 @@
         padding: 1rem;
         @include flex(auto, space-between, row);
         flex-wrap: wrap;
+        gap : 1rem;
       }
       &-top-card {
         grid-column: 9/13;
