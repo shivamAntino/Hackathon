@@ -1,20 +1,37 @@
 import "./auth.scss";
 import { useState } from "react";
 import SelectionCard from "./SelectionCard";
+import { useDispatch } from "react-redux";
+import { login, toggleSelectedRole } from "./auth.slice";
+import { useSelector } from "react-redux";
+import { RootState, useAppDispatch } from "../../store";
 // import logo from "../../assets/images/avatarman.png";
 // import "../../assets/images/avatarman.png";
 
 const Login = () => {
-  const [activeuser, setActiveUser] = useState(false);
+  const dispatch = useAppDispatch();
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
   const [activepm, setActivePm] = useState(false);
   const [activeVP, setActiveVp] = useState(false);
+  const { selectedRole } = useSelector((state: RootState) => state.auth);
   const handlePmSelection = () => {
     setActivePm(!activepm);
     setActiveVp(false);
+    dispatch(toggleSelectedRole("pm"));
   };
   const handleVpSelection = () => {
     setActiveVp(!activeVP);
     setActivePm(false);
+    dispatch(toggleSelectedRole("vp"));
+  };
+  const handleSubmit = () => {
+    console.log("hii");
+    const response = {
+      username: id,
+      password: password,
+    };
+    dispatch(login(response));
   };
   return (
     <>
@@ -52,13 +69,23 @@ const Login = () => {
           </div>
           <div className="form">
             <div className="input_field">
-              <input type="text" placeholder="enter your email" />
+              <input
+                type="text"
+                placeholder="Enter your Id"
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+              />
             </div>
             <div className="input_field">
-              <input type="text" placeholder="enter ypur password" />
+              <input
+                type="text"
+                placeholder="Enter ypur password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
             <div className="btn">
-              <button>Submit</button>
+              <button onClick={() => handleSubmit()}>Submit</button>
             </div>
           </div>
         </div>
