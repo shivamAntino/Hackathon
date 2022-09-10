@@ -9,3 +9,7 @@ export interface LoginCreds {
 }
 
 export type UserType = "VP" | "PM" | null;
+
+export interface ISelectionCard {
+  src: string;
+}
