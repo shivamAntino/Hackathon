@@ -7,12 +7,7 @@ const Avatar: FC<IAvatarProps> = ({ src, height = 50, width = 50 }) => {
 
   return (
     <div className="avatar">
-      <img
-        src="../../assets/images/avatarman.png"
-        alt="avatar"
-        height={height}
-        width={width}
-      />
+      <img src={src} alt="avatar" height={height} width={width} />
     </div>
   );
 };

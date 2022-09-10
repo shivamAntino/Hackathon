@@ -2,7 +2,7 @@ import "./auth.scss";
 import { useState } from "react";
 import SelectionCard from "./SelectionCard";
 // import logo from "../../assets/images/avatarman.png";
-import "../../assets/images/avatarman.png";
+// import "../../assets/images/avatarman.png";
 
 const Login = () => {
   const [activeuser, setActiveUser] = useState(false);
@@ -37,8 +37,8 @@ const Login = () => {
           <div className="login_card_container">
             <div className="card_left" onClick={() => handlePmSelection()}>
               <SelectionCard
-                src="../../assets/images/avatarman.png"
-                title="VP operation"
+                src="https://www.w3schools.com/howto/img_avatar.png"
+                title="PM operation"
                 active={activepm}
               />
             </div>
